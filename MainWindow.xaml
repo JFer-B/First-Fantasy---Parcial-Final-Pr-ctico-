@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <ComboBox Name="cboxCharacter" HorizontalAlignment="Left" Height="36" Margin="120,124,0,0" VerticalAlignment="Top" Width="167">
+            <ComboBoxItem Content="Cleric"/>
+            <ComboBoxItem Content="Fighter"/>
+            <ComboBoxItem Content="Rogue"/>
+            <ComboBoxItem Content="Wizard"/>
+            <ComboBoxItem Content="-Select a class-" IsSelected="True"/>
+        </ComboBox>
+        <Button Name="btnCreate" Content="Create" HorizontalAlignment="Left" Height="44" Margin="123,228,0,0" VerticalAlignment="Top" Width="146" Click="btnCreate_Click"/>
+        <TextBlock Name="txtOutput" HorizontalAlignment="Left" Height="252" Margin="424,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Background="#FFDCF4F2"/>
 
     </Grid>
 </Window>
