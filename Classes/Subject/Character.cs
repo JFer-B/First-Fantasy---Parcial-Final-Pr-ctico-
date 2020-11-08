@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FIrstFantasyGame.Classes.Equippables;
+using FIrstFantasyGame.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,8 +13,10 @@ namespace FIrstFantasyGame.Classes.Subject
         private int level;
         private int experience;
         private Weapon armament;
+        private Armor suit;
         private int life;
         private int mana;
+        private List<IStorable> inventory;
 
 
         public string Name { get => name; set => name = value; }
@@ -22,11 +26,13 @@ namespace FIrstFantasyGame.Classes.Subject
         public Weapon Armament { get => armament; set => armament = value; }
         public int Life { get => life; set => life = value; }
         public int Mana { get => mana; set => mana = value; }
+        public Armor Suit { get => suit; set => suit = value; }
+        internal List<IStorable> Inventory { get => inventory; set => inventory = value; }
 
-        public int Attack(Weapon weapon)
+        public int Attack()
         {
             Random val = new Random();
-            int damage_attack = val.Next(1, 8) + weapon.Damage;
+            int damage_attack = val.Next(1, 8) + Armament.Damage;
             return damage_attack;
         }
     }

@@ -9,6 +9,7 @@ namespace FIrstFantasyGame.Classes.Equippables.Armament
         public Bow(string name, string rarity)
         {
             this.Name = name;
+            this.Rarity = rarity;
             this.Type = "Bow";
             this.Range = "Proyectile";
             Random val = new Random();

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using FIrstFantasyGame.Classes.Subject;
+using FIrstFantasyGame.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FIrstFantasyGame.Classes
 {
-    public abstract class Weapon
+    public abstract class Weapon : IStorable
     {
         private string type;
         private string name;
@@ -17,5 +19,29 @@ namespace FIrstFantasyGame.Classes
         public string Range { get => range; set => range = value; }
         public string Rarity { get => rarity; set => rarity = value; }
         public string Name { get => name; set => name = value; }
+
+        public double Sell()
+        {
+            double price = 5000;
+            switch (this.Rarity)
+            {
+                case "Common":
+                    price = price * 1;
+                    break;
+                case "Uncommon":
+                    price = price * 1.5;
+                    break;
+                case "Rare":
+                    price = price * 2;
+                    break;
+                case "Epic":
+                    price = price * 3;
+                    break;
+                case "Legendary":
+                    price = price * 5;
+                    break;
+            }
+            return price;
+        }
     }
 }

@@ -2,6 +2,7 @@
 using FIrstFantasyGame.Classes.Equippables;
 using FIrstFantasyGame.Classes.Equippables.Armament;
 using FIrstFantasyGame.Classes.Subject;
+using FIrstFantasyGame.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,34 +35,38 @@ namespace FIrstFantasyGame
             Character mycharacter;
             string chName = "JFerk";
             Bow arco = new Bow("Trinfo", "Rare");
-
             string option = cboxCharacter.Text;
 
             switch (option)
             {
                 case "Wizard":
-                    mycharacter = new Wizard(chName, arco);
+                    mycharacter = new Wizard(chName);
                     break;
                 case "Rogue":
-                    mycharacter = new Rogue(chName, arco);
+                    mycharacter = new Rogue(chName);
                     break;
                 case "Cleric":
-                    mycharacter = new Cleric(chName, arco);
+                    mycharacter = new Cleric(chName);
                     break;
                 case "Fighter":
-                    mycharacter = new Fighter(chName, arco);
+                    mycharacter = new Fighter(chName);
                     break;
                 default:
                     mycharacter = null;
                     MessageBox.Show("You MUST select a class");
                     break;
             }
-
-            if(mycharacter != null)
+            mycharacter.Armament = arco;
+            Armor suit = new Armor("Troya", "Uncommon");
+            mycharacter.Suit = suit;
+            if (mycharacter != null)
             {
-                int attack = mycharacter.Attack(arco);
-                txtOutput.Text = attack.ToString() + " " + arco.Damage.ToString();
+                int attack = mycharacter.Attack();
+                txtOutput.Text += attack.ToString() + " " + mycharacter.Armament.Damage.ToString();
             }
+            
+
+
         }
     }
 }

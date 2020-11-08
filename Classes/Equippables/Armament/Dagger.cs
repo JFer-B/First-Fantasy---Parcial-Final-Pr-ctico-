@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FIrstFantasyGame.Classes.Subject;
+using FIrstFantasyGame.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +11,7 @@ namespace FIrstFantasyGame.Classes.Equippables.Armament
         public Dagger(string name, string rarity)
         {
             this.Name = name;
+            this.Rarity = rarity;
             this.Type = "Dagger";
             this.Range = "Short";
             Random val = new Random();
@@ -31,5 +34,6 @@ namespace FIrstFantasyGame.Classes.Equippables.Armament
                     break;
             }
         }
+
     }
 }

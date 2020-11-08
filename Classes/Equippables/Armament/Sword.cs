@@ -9,6 +9,7 @@ namespace FIrstFantasyGame.Classes
         public Sword(string name, string rarity)
         {
             this.Name = name;
+            this.Rarity = rarity;
             this.Type = "Sword";
             this.Range = "Medium";
             Random val = new Random();

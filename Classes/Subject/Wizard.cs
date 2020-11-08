@@ -6,13 +6,12 @@ namespace FIrstFantasyGame.Classes.Subject
 {
     public class Wizard : Character
     {
-        public Wizard(string name, Weapon armament)
+        public Wizard(string name)
         {
             this.Name = name;
             this.Type = "Wizard";
             this.Level = 1;
             this.Experience = 0;
-            this.Armament = armament;
             this.Life = 100;
             this.Mana = 200;
         }
