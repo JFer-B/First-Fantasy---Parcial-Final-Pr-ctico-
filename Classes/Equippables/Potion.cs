@@ -24,7 +24,7 @@ namespace FIrstFantasyGame.Classes.Equippables
 
         public double Sell()
         {
-            double price;
+            double price = 0;
             switch (this.Type)
             {
                 case "Health":

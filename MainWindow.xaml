@@ -5,17 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIrstFantasyGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
-        <ComboBox Name="cboxCharacter" HorizontalAlignment="Left" Height="36" Margin="120,124,0,0" VerticalAlignment="Top" Width="167">
+        <ComboBox Name="cboxCharacter" HorizontalAlignment="Left" Height="36" Margin="54,182,0,0" VerticalAlignment="Top" Width="167">
+            <ComboBoxItem Content="-Select a class-" IsSelected="True"/>
             <ComboBoxItem Content="Cleric"/>
             <ComboBoxItem Content="Fighter"/>
             <ComboBoxItem Content="Rogue"/>
             <ComboBoxItem Content="Wizard"/>
-            <ComboBoxItem Content="-Select a class-" IsSelected="True"/>
         </ComboBox>
-        <Button Name="btnCreate" Content="Create" HorizontalAlignment="Left" Height="44" Margin="123,228,0,0" VerticalAlignment="Top" Width="146" Click="btnCreate_Click"/>
-        <TextBlock Name="txtOutput" HorizontalAlignment="Left" Height="252" Margin="424,86,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Background="#FFDCF4F2"/>
+        <Button Name="btnCreate" Content="Create" HorizontalAlignment="Left" Height="44" Margin="64,400,0,0" VerticalAlignment="Top" Width="146" Click="btnCreate_Click"/>
+        <TextBlock Name="txtOutput" HorizontalAlignment="Left" Height="252" Margin="413,129,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Background="#FFDCF4F2" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="txtChName" HorizontalAlignment="Left" Height="28" Margin="54,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Name" HorizontalAlignment="Left" Height="25" Margin="54,66,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Choose Your Class" HorizontalAlignment="Left" Height="29" Margin="54,148,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="Choose Your Weapon" HorizontalAlignment="Left" Height="29" Margin="54,218,0,0" VerticalAlignment="Top" Width="180"/>
+        <ComboBox Name="cboxWeapon" HorizontalAlignment="Left" Height="29" Margin="54,252,0,0" VerticalAlignment="Top" Width="167">
+            <ComboBoxItem Content="-Select a Weapon-" IsSelected="True"/>
+            <ComboBoxItem Content="Sword"/>
+            <ComboBoxItem Content="Axe"/>
+            <ComboBoxItem Content="Bow"/>
+            <ComboBoxItem Content="Spear"/>
+            <ComboBoxItem Content="Dagger"/>
+        </ComboBox>
+        <Label Content="Choose Your Armor" HorizontalAlignment="Left" Height="29" Margin="54,292,0,0" VerticalAlignment="Top" Width="180"/>
+        <ComboBox Name="cboxArmor" HorizontalAlignment="Left" Height="30" Margin="64,326,0,0" VerticalAlignment="Top" Width="170">
+            <ComboBoxItem Content="-Select an Armor-" IsSelected="True"/>
+            <ComboBoxItem Content="Leather Armor"/>
+            <ComboBoxItem Content="Chainmail Armor"/>
+            <ComboBoxItem Content="Steel Armor"/>
+        </ComboBox>
+        <ComboBox Name="cboxCharacters" HorizontalAlignment="Left" Height="25" Margin="413,66,0,0" VerticalAlignment="Top" Width="197"/>
 
     </Grid>
 </Window>

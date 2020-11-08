@@ -29,15 +29,14 @@ namespace FIrstFantasyGame
         {
             InitializeComponent();
         }
-
+        List<Character> characters = new List<Character>();
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             Character mycharacter;
-            string chName = "JFerk";
-            Bow arco = new Bow("Trinfo", "Rare");
-            string option = cboxCharacter.Text;
+            string chName = txtChName.Text;
+            string class_option = cboxCharacter.Text;
 
-            switch (option)
+            switch (class_option)
             {
                 case "Wizard":
                     mycharacter = new Wizard(chName);
@@ -56,15 +55,68 @@ namespace FIrstFantasyGame
                     MessageBox.Show("You MUST select a class");
                     break;
             }
-            mycharacter.Armament = arco;
-            Armor suit = new Armor("Troya", "Uncommon");
-            mycharacter.Suit = suit;
-            if (mycharacter != null)
+
+            if(mycharacter != null)
             {
-                int attack = mycharacter.Attack();
-                txtOutput.Text += attack.ToString() + " " + mycharacter.Armament.Damage.ToString();
+                Weapon myweapon;
+                string wpName = cboxWeapon.Text;
+                string weapon_option = wpName;
+
+                switch (weapon_option)
+                {
+                    case "Axe":
+                        myweapon = new Axe(wpName, "Common");
+                        break;
+                    case "Bow":
+                        myweapon = new Bow(wpName, "Common");
+                        break;
+                    case "Dagger":
+                        myweapon = new Dagger(wpName, "Common");
+                        break;
+                    case "Spear":
+                        myweapon = new Spear(wpName, "Common");
+                        break;
+                    case "Sword":
+                        myweapon = new Sword(wpName, "Common");
+                        break;
+                    default:
+                        myweapon = null;
+                        MessageBox.Show("You MUST select a WEAPON");
+                        break;
+                }
+
+                if(myweapon != null)
+                {
+                    mycharacter.Armament = myweapon;
+
+                    if(cboxArmor.Text != "-Select an Armor-")
+                    {
+                        Armor myarmor = new Armor(cboxArmor.Text, "Common");
+                        mycharacter.Suit = myarmor;
+
+                        characters.Add(mycharacter);
+
+                        cboxCharacters.Items.Add(mycharacter.Name);
+
+                        txtChName.Text = "";
+                        cboxCharacter.Text = "-Select a Class-";
+                        cboxWeapon.Text = "-Select a Weapon-";
+                        cboxArmor.Text = "-Select an Armor-";
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("You MUST select an ARMOR");
+                    }
+                }
+
+                
             }
-            
+
+
+
+
+
 
 
         }
