@@ -31,6 +31,7 @@ namespace FIrstFantasyGame
         }
         List<Character> characters = new List<Character>();
         
+        
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             Character mycharacter;
@@ -143,7 +144,7 @@ namespace FIrstFantasyGame
         private void btnSlcInventory_Click(object sender, RoutedEventArgs e)
         {
             cboxShowInventory.Items.Clear();
-            cboxShowInventory.Items.Add("-Select an Object -");
+            cboxShowInventory.Items.Add("-Select an Object-");
             cboxShowInventory.Text = "-Select an Object-";
 
             string option = cboxInventory.Text;
@@ -171,6 +172,9 @@ namespace FIrstFantasyGame
                                 cboxShowInventory.Items.Add(p.Name);
                             }
                             break;
+                        default:
+                            MessageBox.Show("You MUST select an INVENTORY");
+                            break;
                     }
                 }
             }
@@ -194,7 +198,7 @@ namespace FIrstFantasyGame
                                     txtOutput.Text = w.ShowInfo();
                                     break;
                                 }
-                                
+
                             }
                             break;
                         case "Armors":
@@ -215,16 +219,18 @@ namespace FIrstFantasyGame
                                     txtOutput.Text = p.ShowInfo();
                                     break;
                                 }
+
                             }
                             break;
                     }
-                    break;
+                    //break;
                 }
             }
         }
 
         private void btnRemoveObject_Click(object sender, RoutedEventArgs e)
         {
+            cboxShowInventory.Text = "-Select an Object-";
             string option = cboxInventory.Text;
             foreach (Character c in characters)
             {
@@ -241,33 +247,41 @@ namespace FIrstFantasyGame
                                     c.WeaponInventory.Remove(w);
                                     break;
                                 }
-
                             }
                             break;
                         case "Armors":
                             foreach (Armor a in c.ArmorInventory)
                             {
-                                cboxShowInventory.Items.Remove(a.Name);
-                                c.ArmorInventory.Remove(a);
-                                break;
+                                if (a.Name == cboxShowInventory.Text)
+                                {
+                                    cboxShowInventory.Items.Remove(a.Name);
+                                    c.ArmorInventory.Remove(a);
+                                    break;
+                                }
+                                
                             }
                             break;
                         case "Potions":
                             foreach (Potion p in c.PotionInventory)
                             {
-                                cboxShowInventory.Items.Remove(p.Name);
-                                c.PotionInventory.Remove(p);
-                                break;
+                                if (p.Name == cboxShowInventory.Text)
+                                {
+                                    cboxShowInventory.Items.Remove(p.Name);
+                                    c.PotionInventory.Remove(p);
+                                    break;
+                                }
+                                
                             }
                             break;
                     }
-                    break;
+                    //break;
                 }
             }
         }
 
         private void btnUseObject_Click(object sender, RoutedEventArgs e)
         {
+            cboxShowInventory.Text = "-Select an Object-";
             string option = cboxInventory.Text;
             foreach (Character c in characters)
             {
@@ -315,13 +329,143 @@ namespace FIrstFantasyGame
                                     c.PotionInventory.Remove(p);
                                     break;
                                 }
-                                
+
                             }
                             break;
                     }
-                    break;
+                    //break;
                 }
             }
+        }
+
+        private List<Potion> PotionList()
+        {
+            List<Potion> potions = new List<Potion>();
+            potions.Add(new Potion("Heath"));
+            potions.Add(new Potion("Mana"));
+            potions.Add(new Potion("Defense"));
+
+            return potions;
+        }
+
+        private List<Weapon> WeaponList()
+        {
+            List<Weapon> weapons = new List<Weapon>();
+            weapons.Add(new Axe("Strombreaker Axe", "Legendary"));
+            weapons.Add(new Bow("Daikyu Bow", "Epic"));
+            weapons.Add(new Spear("Longinus Spear", "Legendary"));
+            weapons.Add(new Dagger("Shadow Steps Dagger", "Rare"));
+            weapons.Add(new Sword("Excalibur", "Legendary"));
+            weapons.Add(new Axe("Final Judgemente Axe", "Epic"));
+            weapons.Add(new Bow("Hunting Bow", "Uncommon"));
+            weapons.Add(new Spear("Poseidon's Trident", "Legendary"));
+            weapons.Add(new Axe("Canvas Dagger", "Epic"));
+            weapons.Add(new Sword("Exalted Blade", "Epic"));
+
+            return weapons;
+
+        }
+
+        private List<Armor> ArmorList()
+        {
+            List<Armor> armors = new List<Armor>();
+            armors.Add(new Armor("Pegasus", "Legendary"));
+            armors.Add(new Armor("Assassin", "Epic"));
+            armors.Add(new Armor("Spartan", "Rare"));
+            armors.Add(new Armor("Sand Prince", "Uncommon"));
+            armors.Add(new Armor("Iron", "Common"));
+            
+            return armors;
+        }
+
+        private void btnSlcType_Click(object sender, RoutedEventArgs e)
+        {
+            cboxItems.Items.Clear();
+            cboxItems.Items.Add("-Select an Object-");
+            cboxItems.Text = "-Select an Object-";
+            string option = cboxObjectType.Text;
+            switch (option)
+            {
+                case "Armors":
+                    List<Armor> armors = ArmorList();
+                    foreach (Armor a in armors)
+                    {
+                        cboxItems.Items.Add(a.Name);
+                    }
+                    break;
+                case "Weapons":
+                    List<Weapon> weapons = WeaponList();
+                    foreach (Weapon w in weapons)
+                    {
+                        cboxItems.Items.Add(w.Name);
+                    }
+                    break;
+                case "Potions":
+                    List<Potion> potions = PotionList();
+                    foreach (Potion p in potions)
+                    {
+                        cboxItems.Items.Add(p.Name);
+                    }
+                    break;
+                default:
+                    MessageBox.Show("You MUST select an OBJECT TYPE");
+                    break;
+            }
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            cboxItems.Text = "-Select an Object-";
+            string option = cboxObjectType.Text;
+            foreach(Character c in characters)
+            {
+                if (c.Name == (string)lbCharacter.Content)
+                {
+                    switch (option)
+                    {
+                        case "Armors":
+                            List<Armor> armors = ArmorList();
+                            foreach (Armor a in armors)
+                            {
+                                if(a.Name == cboxItems.Text)
+                                {
+                                    c.ArmorInventory.Add(a);
+                                    break;
+                                }
+                            }
+                            break;
+                        case "Weapons":
+                            List<Weapon> weapons = WeaponList();
+                            foreach (Weapon w in weapons)
+                            {
+                                if (w.Name == cboxItems.Text)
+                                {
+                                    c.WeaponInventory.Add(w);
+                                    break;
+                                }
+
+                            }
+                            break;
+                        case "Potions":
+                            List<Potion> potions = PotionList();
+                            foreach (Potion p in potions)
+                            {
+                                if (p.Name == cboxItems.Text)
+                                {
+                                    c.PotionInventory.Add(p);
+                                    break;
+                                }
+               
+                            }
+                            break;
+                        default:
+                            MessageBox.Show("You MUST select an OBJECT TYPE");
+                            break;
+                    }
+                }
+                //break;
+            }
+            
         }
     }
 }

@@ -42,7 +42,7 @@ namespace FIrstFantasyGame.Classes.Subject
 
         public string ShowInfo()
         {
-            string info = this.Name + " (" + this.Type + " Level " + this.Level.ToString() + ")" + "\n\n" + this.Armament.ShowInfo() + "\n\n" + this.Suit.ShowInfo();
+            string info = this.Name + " (" + this.Type + " Level " + this.Level.ToString() + ")" + "\n" + "Life: " + this.Life.ToString() + " Mana: " + this.Mana.ToString() + "\n\n" + this.Armament.ShowInfo() + "\n\n" + this.Suit.ShowInfo();
             return info;
         }
     }
