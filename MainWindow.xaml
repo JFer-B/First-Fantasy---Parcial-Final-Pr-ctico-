@@ -5,22 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIrstFantasyGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
-    <Grid>
-        <ComboBox Name="cboxCharacter" HorizontalAlignment="Left" Height="36" Margin="54,182,0,0" VerticalAlignment="Top" Width="167">
+        Title="MainWindow" Height="700" Width="1200">
+    <Grid Background="#FF2C1616">
+        <Rectangle HorizontalAlignment="Left" Height="567" Margin="35,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="1125" Fill="#FF887043"/>
+
+        <ComboBox x:Name="cboxCharacter" HorizontalAlignment="Left" Height="26" Margin="276,226,0,0" VerticalAlignment="Top" Width="167" FontFamily="Harrington">
             <ComboBoxItem Content="-Select a Class-" IsSelected="True"/>
             <ComboBoxItem Content="Cleric"/>
             <ComboBoxItem Content="Fighter"/>
             <ComboBoxItem Content="Rogue"/>
             <ComboBoxItem Content="Wizard"/>
         </ComboBox>
-        <Button Name="btnCreate" Content="Create" HorizontalAlignment="Left" Height="44" Margin="64,400,0,0" VerticalAlignment="Top" Width="146" Click="btnCreate_Click"/>
-        <TextBlock Name="txtOutput" HorizontalAlignment="Left" Height="137" Margin="563,135,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="287" Background="#FFDCF4F2" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-        <TextBox Name="txtChName" HorizontalAlignment="Left" Height="28" Margin="54,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
-        <Label Content="Name" HorizontalAlignment="Left" Height="25" Margin="54,66,0,0" VerticalAlignment="Top" Width="180"/>
-        <Label Content="Choose Your Class" HorizontalAlignment="Left" Height="29" Margin="54,148,0,0" VerticalAlignment="Top" Width="180"/>
-        <Label Content="Choose Your Weapon" HorizontalAlignment="Left" Height="29" Margin="54,218,0,0" VerticalAlignment="Top" Width="180"/>
-        <ComboBox Name="cboxWeapon" HorizontalAlignment="Left" Height="29" Margin="54,252,0,0" VerticalAlignment="Top" Width="167">
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" Height="36" Margin="538,281,0,0" VerticalAlignment="Top" Width="104" Click="btnCreate_Click" FontFamily="Harrington" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="txtOutput" HorizontalAlignment="Left" Height="187" Margin="428,444,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="288" Background="#FFE3E4B4" ScrollViewer.VerticalScrollBarVisibility="Auto" FontFamily="Harrington"/>
+        <TextBox x:Name="txtChName" HorizontalAlignment="Left" Height="27" Margin="500,139,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontFamily="Harrington"/>
+        <Label Content="Character Name" HorizontalAlignment="Left" Height="25" Margin="500,109,0,0" VerticalAlignment="Top" Width="102" FontFamily="Harrington" FontWeight="Bold"/>
+        <Label Content="Choose Your Class" HorizontalAlignment="Left" Height="29" Margin="276,197,0,0" VerticalAlignment="Top" Width="116" FontFamily="Harrington" FontWeight="Bold"/>
+        <Label Content="Choose Your Weapon" HorizontalAlignment="Left" Height="30" Margin="512,195,0,0" VerticalAlignment="Top" Width="140" FontFamily="Harrington" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxWeapon" HorizontalAlignment="Left" Height="26" Margin="512,226,0,0" VerticalAlignment="Top" Width="168" FontFamily="Harrington">
             <ComboBoxItem Content="-Select a Weapon-" IsSelected="True"/>
             <ComboBoxItem Content="Sword"/>
             <ComboBoxItem Content="Axe"/>
@@ -28,42 +30,44 @@
             <ComboBoxItem Content="Spear"/>
             <ComboBoxItem Content="Dagger"/>
         </ComboBox>
-        <Label Content="Choose Your Armor" HorizontalAlignment="Left" Height="29" Margin="54,292,0,0" VerticalAlignment="Top" Width="180"/>
-        <ComboBox Name="cboxArmor" HorizontalAlignment="Left" Height="30" Margin="64,326,0,0" VerticalAlignment="Top" Width="170">
+        <Label Content="Choose Your Armor" HorizontalAlignment="Left" Height="28" Margin="728,194,0,0" VerticalAlignment="Top" Width="122" FontFamily="Harrington" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxArmor" HorizontalAlignment="Left" Height="28" Margin="728,224,0,0" VerticalAlignment="Top" Width="170" FontFamily="Harrington">
             <ComboBoxItem Content="-Select an Armor-" IsSelected="True"/>
             <ComboBoxItem Content="Leather Armor"/>
             <ComboBoxItem Content="Chainmail Armor"/>
             <ComboBoxItem Content="Steel Armor"/>
         </ComboBox>
-        <ComboBox Name="cboxCharacters" HorizontalAlignment="Left" Height="25" Margin="563,37,0,0" VerticalAlignment="Top" Width="197">
+        <ComboBox x:Name="cboxCharacters" HorizontalAlignment="Left" Height="25" Margin="52,444,0,0" VerticalAlignment="Top" Width="198" FontFamily="Harrington">
             <ComboBoxItem Content="-Select a Character-" IsSelected="True"/>
         </ComboBox>
-        <Button Name="btnSelect" Content="Select" HorizontalAlignment="Left" Height="25" Margin="798,37,0,0" VerticalAlignment="Top" Width="105" Click="btnSelect_Click"/>
-        <Label Name="lbCharacter" Content="" HorizontalAlignment="Left" Height="33" Margin="563,84,0,0" VerticalAlignment="Top" Width="197"/>
-        <ComboBox Name="cboxInventory" HorizontalAlignment="Left" Height="29" Margin="550,297,0,0" VerticalAlignment="Top" Width="197">
+        <Button x:Name="btnSelect" Content="Select" HorizontalAlignment="Left" Height="25" Margin="288,444,0,0" VerticalAlignment="Top" Width="76" Click="btnSelect_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <Label x:Name="lbCharacter" Content="" HorizontalAlignment="Left" Height="47" Margin="484,388,0,0" VerticalAlignment="Top" Width="196" FontFamily="Harrington" FontSize="24" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxInventory" HorizontalAlignment="Left" Height="28" Margin="782,448,0,0" VerticalAlignment="Top" Width="136" FontFamily="Harrington">
             <ComboBoxItem Content="-Select an Inventory-" IsSelected="True"/>
             <ComboBoxItem Content="Weapons"/>
             <ComboBoxItem Content="Armors"/>
             <ComboBoxItem Content="Potions"/>
         </ComboBox>
-        <Button Name="btnSlcInventory" Content="Select" HorizontalAlignment="Left" Height="29" Margin="798,294,0,0" VerticalAlignment="Top" Width="86" Click="btnSlcInventory_Click"/>
-        <ComboBox Name="cboxShowInventory" HorizontalAlignment="Left" Height="30" Margin="529,375,0,0" VerticalAlignment="Top" Width="218">
+        <Button x:Name="btnSlcInventory" Content="Select" HorizontalAlignment="Left" Height="24" Margin="968,450,0,0" VerticalAlignment="Top" Width="72" Click="btnSlcInventory_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxShowInventory" HorizontalAlignment="Left" Height="21" Margin="782,515,0,0" VerticalAlignment="Top" Width="162" FontFamily="Harrington">
             <ComboBoxItem Content="-Select an Object-" IsSelected="True"/>
         </ComboBox>
-        <Button Name="btnSlcObject" Content="Show" HorizontalAlignment="Left" Height="28" Margin="775,362,0,0" VerticalAlignment="Top" Width="75" Click="btnSlcObject_Click"/>
-        <Button Name="btnRemoveObject" Content="Remove" HorizontalAlignment="Left" Height="22" Margin="775,406,0,0" VerticalAlignment="Top" Width="88" Click="btnRemoveObject_Click"/>
-        <Button Name="btnUseObject" Content="Use" HorizontalAlignment="Left" Height="24" Margin="775,450,0,0" VerticalAlignment="Top" Width="88" Click="btnUseObject_Click"/>
-        <ComboBox Name="cboxObjectType" HorizontalAlignment="Left" Height="32" Margin="262,111,0,0" VerticalAlignment="Top" Width="138">
+        <Button x:Name="btnSlcObject" Content="Show" HorizontalAlignment="Left" Height="28" Margin="966,510,0,0" VerticalAlignment="Top" Width="76" Click="btnSlcObject_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <Button x:Name="btnRemoveObject" Content="Remove" HorizontalAlignment="Left" Height="28" Margin="1066,562,0,0" VerticalAlignment="Top" Width="76" Click="btnRemoveObject_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <Button x:Name="btnUseObject" Content="Use" HorizontalAlignment="Left" Height="28" Margin="1066,510,0,0" VerticalAlignment="Top" Width="76" Click="btnUseObject_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxObjectType" HorizontalAlignment="Left" Height="24" Margin="54,515,0,0" VerticalAlignment="Top" Width="162" FontFamily="Harrington">
             <ComboBoxItem Content="-Select an Object Type-" IsSelected="True"/>
             <ComboBoxItem Content="Weapons"/>
             <ComboBoxItem Content="Armors"/>
             <ComboBoxItem Content="Potions"/>
         </ComboBox>
-        <Button Name="btnSlcType" Content="Select" HorizontalAlignment="Left" Height="32" Margin="441,111,0,0" VerticalAlignment="Top" Width="76" Click="btnSlcType_Click"/>
-        <ComboBox Name="cboxItems" HorizontalAlignment="Left" Height="36" Margin="262,182,0,0" VerticalAlignment="Top" Width="138">
+        <Button x:Name="btnSlcType" Content="Select" HorizontalAlignment="Left" Height="24" Margin="288,515,0,0" VerticalAlignment="Top" Width="76" Click="btnSlcType_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <ComboBox x:Name="cboxItems" HorizontalAlignment="Left" Height="23" Margin="54,583,0,0" VerticalAlignment="Top" Width="138" FontFamily="Harrington">
             <ComboBoxItem Content="-Select an Item" IsSelected="True"/>
         </ComboBox>
-        <Button Name="btnAdd" Content="Add" HorizontalAlignment="Left" Height="36" Margin="441,182,0,0" VerticalAlignment="Top" Width="76" Click="btnAdd_Click"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Height="30" Margin="288,576,0,0" VerticalAlignment="Top" Width="54" Click="btnAdd_Click" FontFamily="Harrington" FontWeight="Bold"/>
+        <Label Content="FIRST FANTASY" HorizontalAlignment="Center" Height="64" Margin="0,21,0,0" VerticalAlignment="Top" Width="376" Foreground="White" FontFamily="Harrington" FontWeight="Bold" FontSize="48"/>
+        <Label Content="Inventory" HorizontalAlignment="Left" Height="33" Margin="896,392,0,0" VerticalAlignment="Top" Width="108" FontFamily="Harrington" FontWeight="Bold" FontSize="20"/>
 
     </Grid>
 </Window>

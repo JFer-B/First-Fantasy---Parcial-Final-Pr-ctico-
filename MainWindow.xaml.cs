@@ -230,7 +230,7 @@ namespace FIrstFantasyGame
 
         private void btnRemoveObject_Click(object sender, RoutedEventArgs e)
         {
-            cboxShowInventory.Text = "-Select an Object-";
+            
             string option = cboxInventory.Text;
             foreach (Character c in characters)
             {
@@ -277,11 +277,12 @@ namespace FIrstFantasyGame
                     //break;
                 }
             }
+            cboxShowInventory.Text = "-Select an Object-";
         }
 
         private void btnUseObject_Click(object sender, RoutedEventArgs e)
         {
-            cboxShowInventory.Text = "-Select an Object-";
+            
             string option = cboxInventory.Text;
             foreach (Character c in characters)
             {
@@ -333,9 +334,12 @@ namespace FIrstFantasyGame
                             }
                             break;
                     }
+                    string info = c.ShowInfo();
+                    txtOutput.Text = info;
                     //break;
                 }
             }
+            cboxShowInventory.Text = "-Select an Object-";
         }
 
         private List<Potion> PotionList()
@@ -381,8 +385,8 @@ namespace FIrstFantasyGame
         private void btnSlcType_Click(object sender, RoutedEventArgs e)
         {
             cboxItems.Items.Clear();
-            cboxItems.Items.Add("-Select an Object-");
-            cboxItems.Text = "-Select an Object-";
+            cboxItems.Items.Add("-Select an Item-");
+            cboxItems.Text = "-Select an Item-";
             string option = cboxObjectType.Text;
             switch (option)
             {
@@ -415,7 +419,7 @@ namespace FIrstFantasyGame
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            cboxItems.Text = "-Select an Object-";
+            
             string option = cboxObjectType.Text;
             foreach(Character c in characters)
             {
@@ -465,7 +469,8 @@ namespace FIrstFantasyGame
                 }
                 //break;
             }
-            
+            cboxItems.Text = "-Select an Item-";
+
         }
     }
 }
