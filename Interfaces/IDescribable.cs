@@ -6,5 +6,6 @@ namespace FIrstFantasyGame.Interfaces
 {
     interface IDescribable
     {
+        public string ShowInfo();
     }
 }

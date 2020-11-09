@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FIrstFantasyGame.Classes.Equippables
 {
-    public class Armor : IStorable
+    public class Armor : IStorable, IDescribable
     {
         private string name;
         private int defense;
@@ -62,6 +62,12 @@ namespace FIrstFantasyGame.Classes.Equippables
                     break;
             }
             return price;
+        }
+
+        public string ShowInfo()
+        {
+            string info = this.Name + " (" + this.Rarity + ")" + "\n" + "Defense: " + this.Defense.ToString();
+            return info;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FIrstFantasyGame.Classes.Equippables;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,6 +15,9 @@ namespace FIrstFantasyGame.Classes.Subject
             this.Experience = 0;
             this.Life = 100;
             this.Mana = 200;
+            this.WeaponInventory = new List<Weapon>();
+            this.ArmorInventory = new List<Armor>();
+            this.PotionInventory = new List<Potion>();
         }
     }
 }

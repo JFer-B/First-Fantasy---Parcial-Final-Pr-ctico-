@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FIrstFantasyGame.Classes.Subject
 {
-    public abstract class Character
+    public abstract class Character : IDescribable
     {
         private string name;
         private string type;
@@ -16,7 +16,9 @@ namespace FIrstFantasyGame.Classes.Subject
         private Armor suit;
         private int life;
         private int mana;
-        private List<IStorable> inventory;
+        private List<Weapon> weaponinventory;
+        private List<Armor> armorinventory;
+        private List<Potion> potioninventory;
 
 
         public string Name { get => name; set => name = value; }
@@ -27,13 +29,21 @@ namespace FIrstFantasyGame.Classes.Subject
         public int Life { get => life; set => life = value; }
         public int Mana { get => mana; set => mana = value; }
         public Armor Suit { get => suit; set => suit = value; }
-        internal List<IStorable> Inventory { get => inventory; set => inventory = value; }
+        public List<Weapon> WeaponInventory { get => weaponinventory; set => weaponinventory = value; }
+        public List<Armor> ArmorInventory { get => armorinventory; set => armorinventory = value; }
+        public List<Potion> PotionInventory { get => potioninventory; set => potioninventory = value; }
 
         public int Attack()
         {
             Random val = new Random();
             int damage_attack = val.Next(1, 8) + Armament.Damage;
             return damage_attack;
+        }
+
+        public string ShowInfo()
+        {
+            string info = this.Name + " (" + this.Type + " Level " + this.Level.ToString() + ")" + "\n\n" + this.Armament.ShowInfo() + "\n\n" + this.Suit.ShowInfo();
+            return info;
         }
     }
 }

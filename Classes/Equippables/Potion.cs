@@ -1,11 +1,12 @@
-﻿using FIrstFantasyGame.Interfaces;
+﻿using FIrstFantasyGame.Classes.Subject;
+using FIrstFantasyGame.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace FIrstFantasyGame.Classes.Equippables
 {
-    public class Potion : IStorable
+    public class Potion : IStorable, IDescribable
     {
         private string name;
         private int value;
@@ -20,6 +21,21 @@ namespace FIrstFantasyGame.Classes.Equippables
             this.Value = 100;
             this.Type = type;
             this.Name = type + "'s Potion";
+        }
+        public void Use(Character character)
+        {
+            switch (this.Type)
+            {
+                case "Health":
+                    character.Life += this.Value;
+                    break;
+                case "Mana":
+                    character.Mana += this.Value;
+                    break;
+                case "Defense":
+                    character.Suit.Defense += this.Value;
+                    break;
+            }
         }
 
         public double Sell()
@@ -38,6 +54,12 @@ namespace FIrstFantasyGame.Classes.Equippables
                     break;
             }
             return price;
+        }
+
+        public string ShowInfo()
+        {
+            string info = this.Name + " (+" + this.Value.ToString() + ")";
+            return info;
         }
     }
 }

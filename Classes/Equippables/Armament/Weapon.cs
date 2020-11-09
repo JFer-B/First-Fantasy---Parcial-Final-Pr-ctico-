@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FIrstFantasyGame.Classes
 {
-    public abstract class Weapon : IStorable
+    public abstract class Weapon : IStorable, IDescribable
     {
         private string type;
         private string name;
@@ -42,6 +42,12 @@ namespace FIrstFantasyGame.Classes
                     break;
             }
             return price;
+        }
+
+        public string ShowInfo()
+        {
+            string info = this.Name + " (" + this.Rarity + " " + this.Type + ")" + "\n" + "Damage: " + this.Damage.ToString() + "\n" + "Range: " + this.Range;
+            return info;
         }
     }
 }
